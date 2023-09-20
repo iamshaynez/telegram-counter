@@ -1,6 +1,11 @@
 name = "telegram-counter"
-main = "src/index.js"
+main = "index.js"
 compatibility_date = "2023-09-18"
+
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "counter"
+database_id = "6cfad0f8-2f79-4516-881b-711f23d3cbf8"
 
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
 # Note: Use secrets to store sensitive data.
