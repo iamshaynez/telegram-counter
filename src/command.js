@@ -1,10 +1,10 @@
 import { DATABASE, ENV } from "./env.js";
-import { addCount, resetCount } from "./counter.js";
+import { commandAddCount, commandResetCount, deleteCount, showCurrentCount } from "./counter.js";
 
 const handlers = {
     打卡: (args) => {
         if (args.length > 0) {
-            return addCount(args[0]);
+            return commandAddCount(args[0]);
         } else {
             return `不完整的命令`;
         }
@@ -12,12 +12,27 @@ const handlers = {
 
     重置打卡: (args) => {
         if (args.length > 0) {
-            return resetCount(args[0]);
+            return commandResetCount(args[0]);
         } else {
             return `不完整的命令`;
         }
     },
-    // ...其他命令处理函数
+    
+    删除打卡: (args) => {
+        if (args.length > 0) {
+            return deleteCount(args[0]);
+        } else {
+            return `不完整的命令`;
+        }
+    },
+
+    查询打卡: (args) => {
+        if (args.length > 0) {
+            return showCurrentCount(args[0]);
+        } else {
+            return `不完整的命令`;
+        }
+    },
 };
 
 export async function handleCommand(text) {

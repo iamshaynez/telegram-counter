@@ -1,5 +1,5 @@
 export function renderHTML(body) {
-  return `
+    return `
   <html>  
     <head>
       <title>Telegram-Counter</title>
@@ -46,9 +46,12 @@ export function renderHTML(body) {
 }
 
 export function errorToString(e) {
-  return JSON.stringify({
-    message: e.message,
-    stack: e.stack,
-  });
+    return JSON.stringify({
+        message: e.message,
+        stack: e.stack,
+    });
 }
 
+export function assistantMessage(text) {
+    return `---- 小助手消息 ----\r\n${text}\r\n---------------`;
+}
