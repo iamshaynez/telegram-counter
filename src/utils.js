@@ -1,3 +1,5 @@
+
+// 渲染一个 HTML
 export function renderHTML(body) {
     return `
   <html>  
@@ -45,6 +47,7 @@ export function renderHTML(body) {
     `;
 }
 
+// 组装错误信息成文本，方便发送
 export function errorToString(e) {
     return JSON.stringify({
         message: e.message,
@@ -52,6 +55,7 @@ export function errorToString(e) {
     });
 }
 
+// 拼凑小助手的消息发送模板
 export function assistantMessage(text) {
     return `---- 小助手消息 ----\r\n${text}\r\n--------------------`;
 }
