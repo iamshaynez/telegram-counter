@@ -1,10 +1,19 @@
 import { DATABASE, ENV } from "./env.js";
-import { commandAddCount, commandResetCount, deleteCount, showCurrentCount } from "./counter.js";
+import {
+    commandAddCount,
+    commandResetCount,
+    commandSetGoal,
+    commandShowCountHistory,
+    deleteCount,
+    showCurrentCount,
+} from "./counter.js";
 
 const handlers = {
     打卡: (args) => {
-        if (args.length > 0) {
-            return commandAddCount(args[0]);
+        if (args.length > 1) {
+            return commandAddCount(args[0], args[1]);
+        } else if (args.length > 0) {
+            return commandAddCount(args[0], "");
         } else {
             return `不完整的命令`;
         }
@@ -17,7 +26,7 @@ const handlers = {
             return `不完整的命令`;
         }
     },
-    
+
     删除打卡: (args) => {
         if (args.length > 0) {
             return deleteCount(args[0]);
@@ -29,6 +38,20 @@ const handlers = {
     查询打卡: (args) => {
         if (args.length > 0) {
             return showCurrentCount(args[0]);
+        } else {
+            return `不完整的命令`;
+        }
+    },
+    设置打卡目标: (args) => {
+        if (args.length > 2) {
+            return commandSetGoal(args[0], args[1], args[2]);
+        } else {
+            return `不完整的命令`;
+        }
+    },
+    查询打卡历史: (args) => {
+        if (args.length > 0) {
+            return commandShowCountHistory(args[0], 30);
         } else {
             return `不完整的命令`;
         }

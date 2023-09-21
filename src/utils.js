@@ -53,5 +53,5 @@ export function errorToString(e) {
 }
 
 export function assistantMessage(text) {
-    return `---- 小助手消息 ----\r\n${text}\r\n---------------`;
+    return `---- 小助手消息 ----\r\n${text}\r\n--------------------`;
 }
