@@ -8,6 +8,7 @@ import {
     showCurrentCount,
 } from "./counter.js";
 
+// 所有命令静态定义
 const handlers = {
     打卡: (args) => {
         if (args.length > 1) {
@@ -58,6 +59,9 @@ const handlers = {
     },
 };
 
+
+// 对文本命令进行空格拆解
+// 默认第一部分是命令，后面都是参数，空格隔开
 export async function handleCommand(text) {
     const parts = text.trim().split(" ");
     const command = parts[0];

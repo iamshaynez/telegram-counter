@@ -19,6 +19,7 @@ export async function sendMessage(text, chat_id, bot_token) {
 }
 
 // bind webhook for bot
+// 目前并没有使用，也没有测试过
 export async function bindTelegramWebHook(token, url) {
     return await fetch(`${ENV.TELEGRAM_API_DOMAIN}/bot${token}/setWebhook`, {
         method: "POST",

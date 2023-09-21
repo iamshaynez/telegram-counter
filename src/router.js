@@ -9,6 +9,8 @@ const footer = `
 <p>If you have any questions, please visit nowhere to ask.</p>
 `;
 
+
+// 入口方法，所有的流量由这个方法处置和调用
 export async function handleRequest(request) {
     const { pathname } = new URL(request.url);
     if (pathname === `/`) {
@@ -21,6 +23,8 @@ export async function handleRequest(request) {
     return null;
 }
 
+// 处理 Telegram 消息过来的请求，默认的文字类型的消息。如果发送图片等类型可能报错，目前没有做兼容
+// 直接调用了命令处理模块，省事儿
 async function handleTelegramAction(request) {
     const body = await request.json();
     const text = body.message.text;
