@@ -19,9 +19,11 @@ export const CONST = {
 };
 
 export let DATABASE = null;
+export let AI = null;
 
 export function initEnv(env) {
     DATABASE = env.DB;
+    AI = env.AI;
     for (const key in ENV) {
         if (env[key]) {
             switch (ENV_VALUE_TYPE[key] || typeof ENV[key]) {

@@ -7,6 +7,9 @@ binding = "DB" # i.e. available in your Worker on env.DB
 database_name = "counter"
 database_id = "6cfad0f8-2f79-4516-881b-711f23d3cbf8"
 
+[ai]
+binding = "AI"
+
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
 # Note: Use secrets to store sensitive data.
 # Docs: https://developers.cloudflare.com/workers/platform/environment-variables

@@ -8,6 +8,8 @@ import {
     showCurrentCount,
 } from "./counter.js";
 
+import { translate } from "./translator.js";
+
 // 所有命令静态定义
 const handlers = {
     打卡: (args) => {
@@ -53,6 +55,14 @@ const handlers = {
     查询打卡历史: (args) => {
         if (args.length > 0) {
             return commandShowCountHistory(args[0], 30);
+        } else {
+            return `不完整的命令`;
+        }
+    },
+
+    翻译:(args)=> {
+        if (args.length > 0) {
+            return translate(args[0]);
         } else {
             return `不完整的命令`;
         }
